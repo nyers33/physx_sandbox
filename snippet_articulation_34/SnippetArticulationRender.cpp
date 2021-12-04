@@ -11,7 +11,7 @@
 //    contributors may be used to endorse or promote products derived
 //    from this software without specific prior written permission.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 // IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
 // PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
@@ -23,7 +23,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-// Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
+// Copyright (c) 2008-2018 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
 
@@ -33,8 +33,8 @@
 
 #include "PxPhysicsAPI.h"
 
-#include "../snippetrender/SnippetRender.h"
-#include "../snippetrender/SnippetCamera.h"
+#include "../snippet_render/SnippetCamera.h"
+#include "../snippet_render/SnippetRender.h"
 
 using namespace physx;
 
@@ -111,20 +111,12 @@ void exitCallback(void)
 }
 }
 
-const PxVec3 gCamEyeChain(9.621917f, 24.677629f, 16.127209f);
-const PxVec3 gCamDirChain(-0.138525f, -0.468482f, -0.872546f);
-
-const PxVec3 gCamEyeLift(8.605188f, 4.050591f, 0.145860f);
-const PxVec3 gCamDirLift(-0.999581f, -0.026449f, 0.011790f);
-
-extern bool gCreateLiftScene;
+const PxVec3 gCamEye(9.621917f, 24.677629f, 16.127209f);
+const PxVec3 gCamDir(-0.138525f, -0.468482f, -0.872546f);
 
 void renderLoop()
 {
-	if(gCreateLiftScene)
-		sCamera = new Snippets::Camera(gCamEyeLift, gCamDirLift);
-	else
-		sCamera = new Snippets::Camera(gCamEyeChain, gCamDirChain);
+	sCamera = new Snippets::Camera(gCamEye, gCamDir);
 
 	Snippets::setupDefaultWindow("PhysX Snippet Articulation");
 	Snippets::setupDefaultRenderState();

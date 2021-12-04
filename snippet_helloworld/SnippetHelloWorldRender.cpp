@@ -11,7 +11,7 @@
 //    contributors may be used to endorse or promote products derived
 //    from this software without specific prior written permission.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 // IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
 // PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
@@ -23,7 +23,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-// Copyright (c) 2008-2018 NVIDIA Corporation. All rights reserved.
+// Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
 
@@ -33,8 +33,8 @@
 
 #include "PxPhysicsAPI.h"
 
-#include "../SnippetRender/SnippetRender.h"
-#include "../SnippetRender/SnippetCamera.h"
+#include "../snippet_render/SnippetRender.h"
+#include "../snippet_render/SnippetCamera.h"
 
 using namespace physx;
 
@@ -88,19 +88,6 @@ void renderCallback()
 		Snippets::renderActors(&actors[0], static_cast<PxU32>(actors.size()), true);
 	}
 
-	PxU32 nbArticulations = scene->getNbArticulations();
-	for(PxU32 i=0;i<nbArticulations;i++)
-	{
-		PxArticulationBase* articulation;
-		scene->getArticulations(&articulation, 1, i);
-
-		const PxU32 nbLinks = articulation->getNbLinks();
-		std::vector<PxArticulationLink*> links(nbLinks);
-		articulation->getLinks(&links[0], nbLinks);
-
-		Snippets::renderActors(reinterpret_cast<PxRigidActor**>(&links[0]), static_cast<PxU32>(links.size()), true);
-	}
-
 	Snippets::finishRender();
 }
 
@@ -111,14 +98,11 @@ void exitCallback(void)
 }
 }
 
-const PxVec3 gCamEye(9.621917f, 24.677629f, 16.127209f);
-const PxVec3 gCamDir(-0.138525f, -0.468482f, -0.872546f);
-
 void renderLoop()
 {
-	sCamera = new Snippets::Camera(gCamEye, gCamDir);
+	sCamera = new Snippets::Camera(PxVec3(50.0f, 50.0f, 50.0f), PxVec3(-0.6f,-0.2f,-0.7f));
 
-	Snippets::setupDefaultWindow("PhysX Snippet Articulation");
+	Snippets::setupDefaultWindow("PhysX Snippet HelloWorld");
 	Snippets::setupDefaultRenderState();
 
 	glutIdleFunc(idleCallback);

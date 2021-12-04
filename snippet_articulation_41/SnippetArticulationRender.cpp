@@ -33,8 +33,8 @@
 
 #include "PxPhysicsAPI.h"
 
-#include "../snippetrender/SnippetRender.h"
-#include "../snippetrender/SnippetCamera.h"
+#include "../snippet_render/SnippetRender.h"
+#include "../snippet_render/SnippetCamera.h"
 
 using namespace physx;
 
@@ -88,6 +88,19 @@ void renderCallback()
 		Snippets::renderActors(&actors[0], static_cast<PxU32>(actors.size()), true);
 	}
 
+	PxU32 nbArticulations = scene->getNbArticulations();
+	for(PxU32 i=0;i<nbArticulations;i++)
+	{
+		PxArticulationBase* articulation;
+		scene->getArticulations(&articulation, 1, i);
+
+		const PxU32 nbLinks = articulation->getNbLinks();
+		std::vector<PxArticulationLink*> links(nbLinks);
+		articulation->getLinks(&links[0], nbLinks);
+
+		Snippets::renderActors(reinterpret_cast<PxRigidActor**>(&links[0]), static_cast<PxU32>(links.size()), true);
+	}
+
 	Snippets::finishRender();
 }
 
@@ -98,11 +111,22 @@ void exitCallback(void)
 }
 }
 
+const PxVec3 gCamEyeChain(9.621917f, 24.677629f, 16.127209f);
+const PxVec3 gCamDirChain(-0.138525f, -0.468482f, -0.872546f);
+
+const PxVec3 gCamEyeLift(8.605188f, 4.050591f, 0.145860f);
+const PxVec3 gCamDirLift(-0.999581f, -0.026449f, 0.011790f);
+
+extern bool gCreateLiftScene;
+
 void renderLoop()
 {
-	sCamera = new Snippets::Camera(PxVec3(50.0f, 50.0f, 50.0f), PxVec3(-0.6f,-0.2f,-0.7f));
+	if(gCreateLiftScene)
+		sCamera = new Snippets::Camera(gCamEyeLift, gCamDirLift);
+	else
+		sCamera = new Snippets::Camera(gCamEyeChain, gCamDirChain);
 
-	Snippets::setupDefaultWindow("PhysX Snippet HelloWorld");
+	Snippets::setupDefaultWindow("PhysX Snippet Articulation");
 	Snippets::setupDefaultRenderState();
 
 	glutIdleFunc(idleCallback);

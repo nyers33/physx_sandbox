@@ -36,9 +36,9 @@
 
 #include "PxPhysicsAPI.h"
 
-#include "../snippetutils/SnippetUtils.h"
-#include "../snippetcommon/SnippetPrint.h"
-#include "../snippetcommon/SnippetPVD.h"
+#include "../snippet_utils/SnippetUtils.h"
+#include "../snippet_common/SnippetPrint.h"
+#include "../snippet_common/SnippetPVD.h"
 
 #define USE_REDUCED_COORDINATE_ARTICULATION 1
 #define CREATE_SCISSOR_LIFT 1

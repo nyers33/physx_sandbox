@@ -34,28 +34,28 @@ ENDIF(WIN32)
 include( ./CMakeUtils-PhysX.cmake )
 
 SET(SRC_APP_PHYSX_SNIPPETCOMMON
-	./snippetcommon/ClassicMain.cpp
-	./snippetcommon/SnippetPrint.h
-	./snippetcommon/SnippetPVD.h
+	./snippet_common/ClassicMain.cpp
+	./snippet_common/SnippetPrint.h
+	./snippet_common/SnippetPVD.h
 )
 
 SET(SRC_APP_PHYSX_SNIPPETRENDER
-	./snippetrender/SnippetCamera.h
-	./snippetrender/SnippetCamera.cpp
-	./snippetrender/SnippetRender.h
-	./snippetrender/SnippetRender.cpp
+	./snippet_render/SnippetCamera.h
+	./snippet_render/SnippetCamera.cpp
+	./snippet_render/SnippetRender.h
+	./snippet_render/SnippetRender.cpp
 )
 
 SET(SRC_APP_PHYSX_SNIPPETUTILS
-	./snippetutils/SnippetUtils.h
-	./snippetutils/SnippetUtils.cpp
+	./snippet_utils/SnippetUtils.h
+	./snippet_utils/SnippetUtils.cpp
 )
 
 ####################################
 
 SET(SRC_APP_PHYSX_SNIPPET_HELLOWORLD
-	./snippethelloworld/SnippetHelloWorld.cpp
-	./snippethelloworld/SnippetHelloWorldRender.cpp
+	./snippet_helloworld/SnippetHelloWorld.cpp
+	./snippet_helloworld/SnippetHelloWorldRender.cpp
 )
 
 add_executable( physx_snippet_helloworld ${SRC_APP_PHYSX_SNIPPET_HELLOWORLD} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
@@ -68,8 +68,8 @@ setup_physx_41(physx_snippet_helloworld "${SRC_APP_PHYSX_SNIPPET_HELLOWORLD}" "$
 ####################################
 
 SET(SRC_APP_PHYSX_SNIPPET_ARTICULATION_41
-	./snippetarticulation_new/SnippetArticulation.cpp
-	./snippetarticulation_new/SnippetArticulationRender.cpp
+	./snippet_articulation_41/SnippetArticulation.cpp
+	./snippet_articulation_41/SnippetArticulationRender.cpp
 )
 
 add_executable( physx_snippet_articulation_41 ${SRC_APP_PHYSX_SNIPPET_ARTICULATION_41} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
@@ -82,8 +82,8 @@ setup_physx_41(physx_snippet_articulation_41 "${SRC_APP_PHYSX_SNIPPET_ARTICULATI
 ####################################
 
 SET(SRC_APP_PHYSX_SNIPPET_ARTICULATION_34
-	./snippetarticulation_old/SnippetArticulation.cpp
-	./snippetarticulation_old/SnippetArticulationRender.cpp
+	./snippet_articulation_34/SnippetArticulation.cpp
+	./snippet_articulation_34/SnippetArticulationRender.cpp
 )
 
 add_executable( physx_snippet_articulation_34 ${SRC_APP_PHYSX_SNIPPET_ARTICULATION_34} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
