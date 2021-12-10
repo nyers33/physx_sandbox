@@ -1,4 +1,5 @@
-# PhysX examples from the PhysX SDK
+# PhysX examples
+Support for PhysX 3.4 & PhysX 4.1 (win only)
 
 ## PhysX SDK Snippets
 <table style="border-collapse: collapse; border: none; text-align: center; font-weight: bold;">
