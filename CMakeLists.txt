@@ -94,3 +94,73 @@ target_include_directories( physx_snippet_articulation_34 PUBLIC ${CMAKE_CURRENT
 setup_physx_41(physx_snippet_articulation_34 "${SRC_APP_PHYSX_SNIPPET_ARTICULATION_34}" "${SRC_APP_PHYSX_SNIPPETCOMMON}" "${SRC_APP_PHYSX_SNIPPETRENDER}" "${SRC_APP_PHYSX_SNIPPETUTILS}")
 
 ####################################
+
+SET(SRC_APP_PEEL_STACKED_SPHERES
+	./peel_stacked_spheres/PeelStackedSpheres.cpp
+	./peel_stacked_spheres/PeelStackedSpheresRender.cpp
+)
+
+add_executable( peel_stacked_spheres ${SRC_APP_PEEL_STACKED_SPHERES} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
+target_link_libraries( peel_stacked_spheres freeglut_static )
+target_compile_definitions( peel_stacked_spheres PUBLIC FREEGLUT_STATIC RENDER_SNIPPET)
+target_include_directories( peel_stacked_spheres PUBLIC ${CMAKE_CURRENT_LIST_DIR}/libs/freeglut-3.2.1/include )
+
+setup_physx_41(peel_stacked_spheres "${SRC_APP_PEEL_STACKED_SPHERES}" "${SRC_APP_PHYSX_SNIPPETCOMMON}" "${SRC_APP_PHYSX_SNIPPETRENDER}" "${SRC_APP_PHYSX_SNIPPETUTILS}")
+
+####################################
+
+SET(SRC_APP_PEEL_STACKED_CAPSULES
+	./peel_stacked_capsules/PeelStackedCapsules.cpp
+	./peel_stacked_capsules/PeelStackedCapsulesRender.cpp
+)
+
+add_executable( peel_stacked_capsules ${SRC_APP_PEEL_STACKED_CAPSULES} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
+target_link_libraries( peel_stacked_capsules freeglut_static )
+target_compile_definitions( peel_stacked_capsules PUBLIC FREEGLUT_STATIC RENDER_SNIPPET)
+target_include_directories( peel_stacked_capsules PUBLIC ${CMAKE_CURRENT_LIST_DIR}/libs/freeglut-3.2.1/include )
+
+setup_physx_41(peel_stacked_capsules "${SRC_APP_PEEL_STACKED_CAPSULES}" "${SRC_APP_PHYSX_SNIPPETCOMMON}" "${SRC_APP_PHYSX_SNIPPETRENDER}" "${SRC_APP_PHYSX_SNIPPETUTILS}")
+
+####################################
+
+SET(SRC_APP_PEEL_DOMINOS_SPIRAL
+	./peel_dominos_spiral/PeelDominosSpiral.cpp
+	./peel_dominos_spiral/PeelDominosSpiralRender.cpp
+)
+
+add_executable( peel_dominos_spiral ${SRC_APP_PEEL_DOMINOS_SPIRAL} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
+target_link_libraries( peel_dominos_spiral freeglut_static )
+target_compile_definitions( peel_dominos_spiral PUBLIC FREEGLUT_STATIC RENDER_SNIPPET)
+target_include_directories( peel_dominos_spiral PUBLIC ${CMAKE_CURRENT_LIST_DIR}/libs/freeglut-3.2.1/include )
+
+setup_physx_41(peel_dominos_spiral "${SRC_APP_PEEL_DOMINOS_SPIRAL}" "${SRC_APP_PHYSX_SNIPPETCOMMON}" "${SRC_APP_PHYSX_SNIPPETRENDER}" "${SRC_APP_PHYSX_SNIPPETUTILS}")
+
+####################################
+
+SET(SRC_APP_PEEL_CYLINDER_STACK
+	./peel_cylinder_stack/PeelCylinderStack.cpp
+	./peel_cylinder_stack/PeelCylinderStackRender.cpp
+)
+
+add_executable( peel_cylinder_stack ${SRC_APP_PEEL_CYLINDER_STACK} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
+target_link_libraries( peel_cylinder_stack freeglut_static )
+target_compile_definitions( peel_cylinder_stack PUBLIC FREEGLUT_STATIC RENDER_SNIPPET)
+target_include_directories( peel_cylinder_stack PUBLIC ${CMAKE_CURRENT_LIST_DIR}/libs/freeglut-3.2.1/include )
+
+setup_physx_41(peel_cylinder_stack "${SRC_APP_PEEL_CYLINDER_STACK}" "${SRC_APP_PHYSX_SNIPPETCOMMON}" "${SRC_APP_PHYSX_SNIPPETRENDER}" "${SRC_APP_PHYSX_SNIPPETUTILS}")
+
+####################################
+
+SET(SRC_APP_PEEL_CATENARY_BRIDGE
+	./peel_catenary_bridge/PeelCatenaryBridge.cpp
+	./peel_catenary_bridge/PeelCatenaryBridgeRender.cpp
+)
+
+add_executable( peel_catenary_bridge ${SRC_APP_PEEL_CATENARY_BRIDGE} ${SRC_APP_PHYSX_SNIPPETCOMMON} ${SRC_APP_PHYSX_SNIPPETRENDER} ${SRC_APP_PHYSX_SNIPPETUTILS} )
+target_link_libraries( peel_catenary_bridge freeglut_static )
+target_compile_definitions( peel_catenary_bridge PUBLIC FREEGLUT_STATIC RENDER_SNIPPET)
+target_include_directories( peel_catenary_bridge PUBLIC ${CMAKE_CURRENT_LIST_DIR}/libs/freeglut-3.2.1/include )
+
+setup_physx_41(peel_catenary_bridge "${SRC_APP_PEEL_CATENARY_BRIDGE}" "${SRC_APP_PHYSX_SNIPPETCOMMON}" "${SRC_APP_PHYSX_SNIPPETRENDER}" "${SRC_APP_PHYSX_SNIPPETUTILS}")
+
+####################################
